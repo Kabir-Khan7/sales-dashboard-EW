@@ -127,7 +127,7 @@ st.markdown(f"""
     """, unsafe_allow_html=True)
 
 # Title with logo
-st.markdown(f'<div class="main-title">{logo_html} Electronic World - Professional Sales Dashboard</div>', unsafe_allow_html=True)
+st.markdown(f'<div class="main-title">{logo_html} Electronic World - Sales Dashboard</div>', unsafe_allow_html=True)
 
 def detect_month_columns(df):
     """Detect month columns in YY-Mon format (24-Oct, 25-Jan, etc.)"""
