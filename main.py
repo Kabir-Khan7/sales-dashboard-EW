@@ -335,7 +335,7 @@ def create_business_performance_table(df):
     
     performance_data = {
         'Metric': [
-            'Total Inventory Ordered',
+            'Total Inventory to Date',
             'Total Inventory Sold',
             'Inventory Sold %',
             'Remaining Inventory',
