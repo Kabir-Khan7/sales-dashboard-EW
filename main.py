@@ -339,7 +339,9 @@ def create_business_performance_table(df):
             'Total Inventory Sold',
             'Inventory Sold %',
             'Remaining Inventory',
-            'Inventory Value at Cost'
+            'Inventory Value at Cost',
+            'Potential Revenue',
+            'Potential Gross Profit'
         ],
         'Value': [
             total_ordered,
