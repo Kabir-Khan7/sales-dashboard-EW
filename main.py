@@ -108,6 +108,21 @@ st.markdown(f"""
         background-color: #d4edda !important;
         font-weight: bold;
     }}
+    .urgency-red {{
+        background-color: #ffcccc !important;
+        font-weight: bold;
+        text-align: center;
+    }}
+    .urgency-yellow {{
+        background-color: #fff3cd !important;
+        font-weight: bold;
+        text-align: center;
+    }}
+    .urgency-green {{
+        background-color: #d4edda !important;
+        font-weight: bold;
+        text-align: center;
+    }}
     /* Green color for filter widgets */
     .stMultiSelect [data-baseweb="tag"] {{
         background-color: #28a745 !important;
@@ -256,6 +271,119 @@ def calculate_all_metrics(df, month_cols, selected_months=None):
     
     return df, sorted_months
 
+def calculate_reordering_metrics(df, sorted_months):
+    """Calculate reordering metrics based on sales data and lead time"""
+    if 'Total Unit Ordered' not in df.columns or 'Total Units Sold' not in df.columns:
+        return pd.DataFrame(), pd.DataFrame()
+    
+    # Create a copy to avoid modifying original
+    reorder_df = df.copy()
+    
+    # Calculate current inventory
+    reorder_df['Current Inventory'] = reorder_df['Total Unit Ordered'] - reorder_df['Total Units Sold']
+    
+    # Get the last 3 months (most recent)
+    recent_months = sorted_months[-3:] if len(sorted_months) >= 3 else sorted_months
+    
+    # Initialize lists to store calculated metrics
+    forecasted_sales_list = []
+    safety_stock_list = []
+    reorder_point_list = []
+    order_qty_list = []
+    urgency_list = []
+    
+    # Calculate metrics for each SKU
+    for _, row in reorder_df.iterrows():
+        # Get sales data for recent months
+        sales = [row[month] for month in recent_months]
+        
+        # Calculate forecasted monthly sales (weighted average)
+        if len(sales) == 3:
+            # Weighted average: recent months have higher weights
+            forecasted_sales = (sales[0]*0.2 + sales[1]*0.3 + sales[2]*0.5) / 1.0
+        elif len(sales) == 2:
+            forecasted_sales = (sales[0]*0.4 + sales[1]*0.6) / 1.0
+        else:
+            forecasted_sales = sales[0] if sales else 0
+        
+        # Calculate standard deviation for safety stock
+        if len(sales) >= 2:
+            std_dev = np.std(sales)
+        else:
+            std_dev = forecasted_sales * 0.3  # Default to 30% if not enough data
+        
+        # Safety stock calculation (95% service level - Z=1.65)
+        lead_time_days = 60
+        safety_stock = 1.65 * std_dev * np.sqrt(lead_time_days / 30)
+        
+        # Reorder point calculation
+        daily_demand = forecasted_sales / 30
+        lead_time_demand = daily_demand * lead_time_days
+        reorder_point = lead_time_demand + safety_stock
+        
+        # Current inventory
+        current_inv = row['Current Inventory']
+        
+        # Order quantity calculation
+        if current_inv < reorder_point:
+            order_qty = max(0, reorder_point - current_inv)
+        else:
+            order_qty = 0
+        
+        # Urgency level
+        if current_inv < lead_time_demand:
+            urgency = '🚨 Red'
+        elif current_inv < reorder_point:
+            urgency = '⚠️ Yellow'
+        else:
+            urgency = '✅ Green'
+        
+        # Append to lists
+        forecasted_sales_list.append(forecasted_sales)
+        safety_stock_list.append(safety_stock)
+        reorder_point_list.append(reorder_point)
+        order_qty_list.append(order_qty)
+        urgency_list.append(urgency)
+    
+    # Add calculated columns
+    reorder_df['Forecasted Monthly Sales'] = forecasted_sales_list
+    reorder_df['Safety Stock'] = safety_stock_list
+    reorder_df['Reorder Point'] = reorder_point_list
+    reorder_df['Recommended Order Qty'] = order_qty_list
+    reorder_df['Urgency'] = urgency_list
+    
+    # Create SKU table
+    sku_cols = ['ABO SKU', 'Product Name', 'Category', 'Current Inventory', 
+                'Forecasted Monthly Sales', 'Safety Stock', 'Reorder Point', 
+                'Recommended Order Qty', 'Urgency']
+    sku_table = reorder_df[[col for col in sku_cols if col in reorder_df.columns]].copy()
+    
+    # Create category summary
+    if 'Category' in reorder_df.columns:
+        category_summary = reorder_df.groupby('Category').agg(
+            Total_SKUs=('ABO SKU', 'count'),
+            Red_SKUs=('Urgency', lambda x: (x == '🚨 Red').sum()),
+            Yellow_SKUs=('Urgency', lambda x: (x == '⚠️ Yellow').sum()),
+            Green_SKUs=('Urgency', lambda x: (x == '✅ Green').sum()),
+            Total_Order_Qty=('Recommended Order Qty', 'sum'),
+            Avg_Safety_Stock=('Safety Stock', 'mean'),
+            Avg_Reorder_Point=('Reorder Point', 'mean')
+        ).reset_index()
+        
+        category_summary.rename(columns={
+            'Total_SKUs': 'Total SKUs',
+            'Red_SKUs': 'Urgent (🚨)',
+            'Yellow_SKUs': 'Warning (⚠️)',
+            'Green_SKUs': 'Safe (✅)',
+            'Total_Order_Qty': 'Total Recommended Order',
+            'Avg_Safety_Stock': 'Avg Safety Stock',
+            'Avg_Reorder_Point': 'Avg Reorder Point'
+        }, inplace=True)
+    else:
+        category_summary = pd.DataFrame()
+    
+    return sku_table, category_summary
+
 def style_dataframe(df):
     """Apply professional styling to dataframe"""
     # Format all numeric columns appropriately
@@ -302,6 +430,42 @@ def style_dataframe(df):
                 subset=[col],
                 **{'font-weight': 'bold'}
             )
+    
+    # Set table properties
+    styler = styler.set_table_styles([
+        {'selector': 'thead th',
+         'props': [('background-color', '#2e86ab'), 
+                   ('color', 'white'),
+                   ('font-weight', 'bold'),
+                   ('text-align', 'center')]},
+        {'selector': 'tbody tr:nth-child(even)',
+         'props': [('background-color', '#f8f9fa')]},
+        {'selector': 'tbody tr:hover',
+         'props': [('background-color', '#e9ecef')]},
+        {'selector': '.total-row',
+         'props': [('background-color', '#2e86ab !important'), 
+                   ('color', 'white !important'),
+                   ('font-weight', 'bold')]}
+    ])
+    
+    return styler
+
+def style_reorder_table(df):
+    """Apply special styling to reorder table"""
+    # Format numbers
+    styler = df.style.format({
+        'Forecasted Monthly Sales': '{:,.1f}',
+        'Safety Stock': '{:,.1f}',
+        'Reorder Point': '{:,.1f}',
+        'Current Inventory': '{:,.0f}',
+        'Recommended Order Qty': '{:,.0f}'
+    })
+    
+    # Apply urgency coloring
+    styler = styler.applymap(lambda x: 'background-color: #ffcccc' if '🚨 Red' in x else 
+                                      'background-color: #fff3cd' if '⚠️ Yellow' in x else 
+                                      'background-color: #d4edda',
+                            subset=['Urgency'])
     
     # Set table properties
     styler = styler.set_table_styles([
@@ -674,7 +838,13 @@ def main():
             filtered_df = filtered_df[filtered_df['Product Name'].isin(selected_products)].copy()
         
         # Main dashboard tabs
-        tab1, tab2, tab3, tab4 = st.tabs(["Performance Summary", "Product Analysis", "Monthly Breakdown", "SKU Performance Trend"])
+        tab1, tab2, tab3, tab4, tab5 = st.tabs([
+            "Performance Summary", 
+            "Product Analysis", 
+            "Monthly Breakdown", 
+            "SKU Performance Trend",
+            "Reordering Recommendations"
+        ])
         
         with tab1:
             st.markdown('<p class="section-header">Performance Summary</p>', unsafe_allow_html=True)
@@ -934,6 +1104,45 @@ def main():
                 )
             else:
                 st.warning("No data available for SKU performance trend")
+                
+        with tab5:
+            st.markdown('<p class="section-header">Reordering Recommendations</p>', unsafe_allow_html=True)
+            
+            # Calculate reordering metrics
+            sku_reorder_table, category_reorder_table = calculate_reordering_metrics(filtered_df, sorted_months)
+            
+            if sku_reorder_table.empty:
+                st.warning("Could not generate reordering recommendations. Ensure 'Total Unit Ordered' and 'Total Units Sold' columns exist.")
+            else:
+                st.subheader("SKU-Level Reordering Plan")
+                st.dataframe(
+                    style_reorder_table(sku_reorder_table),
+                    use_container_width=True,
+                    height=600
+                )
+                
+                if not category_reorder_table.empty:
+                    st.subheader("Category-Level Inventory Summary")
+                    st.dataframe(
+                        style_dataframe(category_reorder_table),
+                        use_container_width=True
+                    )
+                    
+                # Explanation of urgency levels
+                st.markdown("""
+                **Urgency Level Explanation:**
+                - **🚨 Red**: Current inventory is below projected demand during lead time (60 days) - Immediate action required
+                - **⚠️ Yellow**: Current inventory is below reorder point but above lead time demand - Time to reorder
+                - **✅ Green**: Sufficient inventory - No action needed
+                """)
+                
+                # Safety stock explanation
+                st.markdown("""
+                **Inventory Science:**
+                - **Safety Stock**: Buffer inventory to protect against demand variability (calculated at 95% service level)
+                - **Reorder Point**: Inventory level triggering new orders (Lead Time Demand + Safety Stock)
+                - **Lead Time**: 60 days (China to USA shipping + customs clearance)
+                """)
         
         # Export buttons
         st.sidebar.markdown("---")
@@ -947,8 +1156,10 @@ def main():
                 export_data = product_table
             elif tab3.active:
                 export_data = monthly_breakdown if show_monthly_breakdown else pd.DataFrame()
-            else:
+            elif tab4.active:
                 export_data = sku_trend
+            else:
+                export_data = sku_reorder_table
             
             if not export_data.empty:
                 csv = export_data.to_csv(index=False).encode('utf-8')
