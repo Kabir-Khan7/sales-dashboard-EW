@@ -9,21 +9,21 @@ CABTEQ001195,CABTEQ001195, BT Headset,Electro - Elite Pro Bluetooth Headset - Bl
 CABTAM001199,CABTAM001199, BT Headset,Electro Vouge - Vouge Bluetooth Headset 2 in1 - Navy Blue,15-Oct-24,18.21,49.99,1498,571,-4,-0.007117438,4,9,334,51,32,67,87,62,55,60,40,53,24,31,9
 CABTAM001200,CABTAM001200, BT Headset,Electro Vouge - Vouge Bluetooth Headset 2 in1 - BlackBrown,15-Oct-24,18.21,49.99,1500,606,0,0,4,10,302,70,42,80,112,51,53,50,41,59,26,12,10
 CABTEQ001198,CABTEQ001198, BT Headset,Electro - Wear 1 Mono Bluetooth Headset - Black,15-Oct-24,8.7,24.99,1503,1065,-6,-0.005698006,4,13,537,161,76,150,141,83,88,114,65,63,54,57,13
-CAOTEQ002375,CAOTEQ002375, BT Headset,ElectroGroove?-?3in1?Combo?Audio?Box?-?Black,30-Apr-24,16.66,49.99,1998,1555,-4,-0.002590674,6,13,386,742,114,154,159,61,80,59,57,45,32,39,13
--,ELLC/SKU/001386, BT Headset,Electro Paw II - Dog Style Portal Bluetooth Speaker - Red,7-Mar-25,7.08,24.99,2620,779,-1,-0.001283697,35,58,755,24,0,0,0,0,0,182,129,99,149,138,58
--,ELLC/SKU/001387, BT Headset,Electro Paw II - Dog Style Portal Bluetooth Speaker - Black,7-Mar-25,7.08,24.99,2900,1093,-1,-0.000914913,37,85,1073,20,0,0,0,0,0,232,178,152,184,242,85
--,ELLCSKU001418, BT Headset,Electro Aqua Beat 40W Waterproof Bluetooth Speaker - Black,6-Jun-25,38.34,69.99,306,181,-1,-0.005524862,11,13,179,2,0,0,0,0,0,0,0,1,114,51,13
--,ELLC-SKU-001532, BT Headset,Electro Paw II - Dog Style Portal Bluetooth Speaker Medium - Black,6-Jun-25,10.2,29.99,300,101,0,0,4,9,99,2,0,0,0,0,0,0,0,0,57,33,9
--,ELLC-SKU-001531, BT Headset,Electro Paw II - Dog Style Portal Bluetooth Speaker Medium- Red,6-Jun-25,10.2,29.99,300,84,0,0,1,6,81,3,0,0,0,0,0,0,0,0,48,27,6
--,ELLC-SKU-001530, BT Headset,Electro Thunder Bass 100X 100W Bluetooth Speaker - Black,6-Jun-25,62.7,129.99,1866,414,0,0,29,67,396,18,0,0,0,0,0,0,0,1,177,151,67
-,ELLCSKU001417, BT Headset,Electro Vibe Duo 10W Waterproof Bluetooth Speaker - Black,6-Jun-25,6.3,19.99,1016,491,-1,-0.00203666,15,37,484,7,0,0,0,0,0,0,0,0,308,139,37
-,ELLC-SKU-001536, BT Headset,Electro Rumble 70W Bluetooth Speaker - Black,24-Jul-25,50.32,119.99,1542,70,-1,-0.014285714,31,55,70,0,0,0,0,0,0,0,0,0,0,15,55
-CASKEG001412,EW-PAW-BLK, BT Headset,Electro Paw - 2.5 Dog Portal Bluetooth Speaker - Black,21-Nov-23,5.07,19.99,9125,8169,-9,-0.001103482,8,14,849,6247,177,275,621,336,184,93,55,74,60,33,14
-CASKEG001413,EW-PAW-RED, BT Headset,Electro Paw - 2.5 Dog Portal Bluetooth Speaker - Red,21-Nov-23,5.07,19.99,9321,8027,-16,-0.001997503,10,19,909,5980,220,234,684,370,215,91,63,71,42,38,19
-CASKEU001436,CASKEU001436, BT Headset,Electro Cube - Bluetoooth Speaker - Grey,18-Jun-24,5.12,19.99,8111,5726,-7,-0.001053371,20,34,1633,2701,347,351,694,376,230,387,195,188,138,85,34
-CAWCEW000255,CAWCEW000255, BT Headset,Electro Splash - 5W Water Resistance Bluetooth Speaker - Black,25-Nov-24,7.92,24.99,3583,1365,-3,-0.002243829,19,32,1012,9,0,75,269,158,186,153,146,148,101,88,32
-CASKEW001482,CASKEW001482, BT Headset,Electro 3Wave - Bluetooth Party 3x1 Speaker - Black,12-Dec-24,61.36,99.99,734,534,-1,-0.001901141,6,9,362,1,0,0,171,81,87,64,45,34,19,23,9
-,CAWCEW000256, BT Headset,Electro Beatbox - 20W Water Resistance Bluetooth Speaker - Black,31-Dec-24,14.83,34.99,1829,1066,0,0,24,48,1040,4,0,0,22,346,200,165,97,85,65,34,48
+CAOTEQ002375,CAOTEQ002375,Combo Audio Box,ElectroGroove - 3in1 Combo Audio Box - Black,30-Apr-24,16.66,49.99,1998,1555,-4,-0.002590674,6,13,386,742,114,154,159,61,80,59,57,45,32,39,13
+-,ELLC/SKU/001386,BT Speaker,Electro Paw II - Dog Style Portal Bluetooth Speaker - Red,7-Mar-25,7.08,24.99,2620,779,-1,-0.001283697,35,58,755,24,0,0,0,0,0,182,129,99,149,138,58
+-,ELLC/SKU/001387,BT Speaker,Electro Paw II - Dog Style Portal Bluetooth Speaker - Black,7-Mar-25,7.08,24.99,2900,1093,-1,-0.000914913,37,85,1073,20,0,0,0,0,0,232,178,152,184,242,85
+-,ELLCSKU001418,BT Speaker,Electro Aqua Beat 40W Waterproof Bluetooth Speaker - Black,6-Jun-25,38.34,69.99,306,181,-1,-0.005524862,11,13,179,2,0,0,0,0,0,0,0,1,114,51,13
+-,ELLC-SKU-001532,BT Speaker,Electro Paw II - Dog Style Portal Bluetooth Speaker Medium - Black,6-Jun-25,10.2,29.99,300,101,0,0,4,9,99,2,0,0,0,0,0,0,0,0,57,33,9
+-,ELLC-SKU-001531,BT Speaker,Electro Paw II - Dog Style Portal Bluetooth Speaker Medium- Red,6-Jun-25,10.2,29.99,300,84,0,0,1,6,81,3,0,0,0,0,0,0,0,0,48,27,6
+-,ELLC-SKU-001530,BT Speaker,Electro Thunder Bass 100X 100W Bluetooth Speaker - Black,6-Jun-25,62.7,129.99,1866,414,0,0,29,67,396,18,0,0,0,0,0,0,0,1,177,151,67
+,ELLCSKU001417,BT Speaker,Electro Vibe Duo 10W Waterproof Bluetooth Speaker - Black,6-Jun-25,6.3,19.99,1016,491,-1,-0.00203666,15,37,484,7,0,0,0,0,0,0,0,0,308,139,37
+,ELLC-SKU-001536,BT Speaker,Electro Rumble 70W Bluetooth Speaker - Black,24-Jul-25,50.32,119.99,1542,70,-1,-0.014285714,31,55,70,0,0,0,0,0,0,0,0,0,0,15,55
+CASKEG001412,EW-PAW-BLK,BT Speaker,Electro Paw - 2.5 Dog Portal Bluetooth Speaker - Black,21-Nov-23,5.07,19.99,9125,8169,-9,-0.001103482,8,14,849,6247,177,275,621,336,184,93,55,74,60,33,14
+CASKEG001413,EW-PAW-RED,BT Speaker,Electro Paw - 2.5 Dog Portal Bluetooth Speaker - Red,21-Nov-23,5.07,19.99,9321,8027,-16,-0.001997503,10,19,909,5980,220,234,684,370,215,91,63,71,42,38,19
+CASKEU001436,CASKEU001436,BT Speaker,Electro Cube - Bluetoooth Speaker - Grey,18-Jun-24,5.12,19.99,8111,5726,-7,-0.001053371,20,34,1633,2701,347,351,694,376,230,387,195,188,138,85,34
+CAWCEW000255,CAWCEW000255,BT Speaker,Electro Splash - 5W Water Resistance Bluetooth Speaker - Black,25-Nov-24,7.92,24.99,3583,1365,-3,-0.002243829,19,32,1012,9,0,75,269,158,186,153,146,148,101,88,32
+CASKEW001482,CASKEW001482,BT Speaker,Electro 3Wave - Bluetooth Party 3x1 Speaker - Black,12-Dec-24,61.36,99.99,734,534,-1,-0.001901141,6,9,362,1,0,0,171,81,87,64,45,34,19,23,9
+,CAWCEW000256,BT Speaker,Electro Beatbox - 20W Water Resistance Bluetooth Speaker - Black,31-Dec-24,14.83,34.99,1829,1066,0,0,24,48,1040,4,0,0,22,346,200,165,97,85,65,34,48
 CABTEW001219,CABTEW001219, BT Headset,Electro Air Touch Pro In Ear Bluetooth headset - White,31-Dec-24,10.2,39.99,763,489,-1,-0.00204499,6,14,484,5,0,0,0,115,140,76,47,38,26,28,14
 -,CABTEW001218, BT Headset,Electro Touch Tone Pod Bluetooth Headset - White,7-Feb-25,8.4,39.99,1511,742,-1,-0.001347709,12,19,742,0,0,0,0,0,140,215,108,134,61,65,19
 ELLC/SKU/001152,ELLC/SKU/001152, BT Headset,Electro - SoundPod Bluetooth headset ANC+ENC - White,1-Mar-25,7.84,29.99,3771,1731,-2,-0.001155402,71,125,1698,33,0,0,0,0,0,246,404,316,281,326,125
@@ -580,7 +580,7 @@ CADKEN000526,ELCPW-USBCLTN4FT-BL,Sync Cables,Electro Power - Type C to lightning
 CADKEN000525,ELCPW-USBCC4FT-BL,Sync Cables,Electro Power - Type C to C Charging Cable - Black,31-Jul-24,0.86,19.99,190,48,0,0,3,3,16,24,2,5,1,1,1,1,1,1,4,4,3
 ,CADKEW000531,Sync Cables,Electro Multi Charge 4in1,31-Dec-24,1.59,19.99,7223,2818,-8,-0.002999625,104,168,2760,52,0,0,6,180,258,244,383,528,507,492,168
 -,ELLC/SKU/001335,Travel Charger Kit,Electro Power Essential Pack Bag - Black,7-Feb-25,19.72,69.99,2961,1043,-2,-0.001917546,18,38,1026,17,0,0,0,0,127,258,167,194,121,121,38
-CAWCEN000251,CAWCEN000251,Wall Charger,EletroPower?-?40W?Dual?Wall?Charger?-?White (Old SKU),12-Mar-24,2.88,19.99,27448,19909,-35,-0.001794596,272,453,3675,14988,482,437,327,121,98,118,65,614,1080,1126,453
+CAWCEN000251,CAWCEN000251,Wall Charger,EletroPower - 40W Dual Wall Charger - White (Old SKU),12-Mar-24,2.88,19.99,27448,19909,-35,-0.001794596,272,453,3675,14988,482,437,327,121,98,118,65,614,1080,1126,453
 CAWCEN000252,CAWCEN000252,Wall Charger,Electro Power - Wall Charger with the cable - White (Old SKU),30-Apr-24,4.32,24.99,50100,36955,-91,-0.00243196,238,398,8255,20004,3375,3023,2298,945,777,925,1626,1031,1330,1223,398
 CAWCEN000253,CAWCEN000253,Wall Charger,ElectroPower - 40W Dual Wall Charger  Type C to Lightning Charging Cable - White (Old SKU),15-Aug-24,3.65,24.99,20215,13426,-30,-0.002188514,115,198,4694,3961,1235,1605,1931,766,886,1001,498,421,484,440,198
 CAWCEW000260,CAWCEW000260,Wall Charger,ElectroPower - 40W Dual Port Wall Charger with Type C to C Cable - White (New SKU),25-Nov-24,3.32,39.99,9458,8486,-21,-0.002275177,88,147,7218,122,1,414,731,686,832,1390,1151,1633,871,508,147
@@ -601,4 +601,4 @@ CAHDLS000674,LS-729,Wired Headset,LELISU - Type C Headset LS - 729 - Brown/White
 CABTEQ001191,CABTEQ001191,Wired Headset,Electro PureTune - Type C Headset - White,17-Jun-24,2.41,24.99,1492,545,0,0,1,3,159,280,38,31,37,21,22,29,22,26,19,17,3
 CABTEQ001192,CABTEQ001192,Wired Headset,Electro PureTune - Type C Headset - Black,17-Jun-24,2.41,24.99,1506,665,0,0,4,5,173,369,45,28,50,24,28,26,19,27,21,23,5
 -,ELLCSKU001401,Wireless Charger,Electro 3in1 Charging Station Qi2 with Magnetic Wireless Charger - Grey,7-Mar-25,16.2,39.99,3004,1432,-14,-0.009776536,47,76,1406,26,0,0,0,0,0,220,196,384,251,279,76
-CAOTEQ002374,CAOTEQ002374,Wireless Charger,Electro?Trio?Magnetic?Wireless?Charger?-?Black,30-Apr-24,8.44,24.99,2558,1864,-4,-0.002156334,4,11,282,1226,107,120,129,63,65,41,28,27,24,23,11
+CAOTEQ002374,CAOTEQ002374,Wireless Charger,Electro Trio Magnetic Wireless Charger - Black,30-Apr-24,8.44,24.99,2558,1864,-4,-0.002156334,4,11,282,1226,107,120,129,63,65,41,28,27,24,23,11
