@@ -151,7 +151,7 @@ def detect_month_columns(df):
     
     # Ensure we have all months from Oct-24 to Jul-25 in correct order
     expected_months = ['24-Jan', '24-Oct', '24-Nov', '24-Dec', '25-Jan', '25-Feb', 
-                      '25-Mar', '25-Apr', '25-May', '25-Jun', '25-Jul', '25-Aug']
+                      '25-Mar', '25-Apr', '25-May', '25-Jun', '25-Jul', '25-Aug', '25-Sep']
     
     # Filter to only include expected months that exist in the dataframe
     month_cols = [m for m in expected_months if m in df.columns]
